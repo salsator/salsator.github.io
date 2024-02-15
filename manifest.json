@@ -1,6 +1,6 @@
 {
-    "name": "web_smazat",
-    "short_name": "web_smazat",
+    "name": "VykupujemePreview",
+    "short_name": "VykupujemePreview",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
