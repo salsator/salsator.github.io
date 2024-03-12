@@ -29,16 +29,17 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>web_smazat</title>
+  <title>scanner</title>
   <link rel="manifest" href="manifest.json">
   <script src="https://unpkg.com/@zxing/library@0.19.1" type="application/javascript"></script>
   <script src="https://cdn.jsdelivr.net/npm/dynamsoft-javascript-barcode@9.6.20/dist/dbr.js"></script>
   <script>
     // The value below is injected by flutter build, do not touch.
-    const serviceWorkerVersion = "4128683576";
+    const serviceWorkerVersion = "3189151353";
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
+
 </head>
 <body>
   <script>
@@ -56,5 +57,32 @@
       });
     });
   </script>
+
+  <script>
+  function sendMessageToParent(data) {
+    // Parse the JSON string back to a JavaScript object
+
+
+    console.log(`Data received from Flutter app: ${data}`);
+
+    // Example: Update the DOM or pass this data to another part of your website
+     window.parent.postMessage(
+        {
+          data: {
+            isbn : data
+          },
+        },
+        '*'
+      );
+
+  }
+</script>
+  <script>
+
+  window.addEventListener('message', (evt) => {
+  console.log(`Data received from web: ${evt}`);
+  }) //vrátí evt.data.type = single / multiple
+
+</script>
 </body>
 </html>
