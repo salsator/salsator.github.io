@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZXing Barcode Scanner</title>
+
+    <!-- ZXing Library -->
+    <script src="https://unpkg.com/@zxing/library@latest"></script>
+</head>
+<body>
+<!-- Video element, který ZXing použije pro zobrazení video streamu -->
+<script src="https://unpkg.com/@zxing/library@latest"></script>
+<video id="video" width="100%" height="100%"></video>
+
+<script>
+    const codeReader = new ZXing.BrowserMultiFormatReader();
+
+    // Získání seznamu video vstupních zařízení (kamer)
+    codeReader.getVideoInputDevices().then((videoInputDevices) => {
+      // Vyhledání zařízení se zadní kamerou (pokud existuje)
+      let backCameraDevice = null;
+
+      // Procházení dostupných video zařízení
+      videoInputDevices.forEach((device) => {
+        if (device.label.toLowerCase().includes('back') || device.label.toLowerCase().includes('environment')) {
+          backCameraDevice = device;
+        }
+      });
+
+      // Pokud najdeme zadní kameru, použijeme ji
+      if (backCameraDevice) {
+        codeReader.decodeFromVideoDevice(backCameraDevice.deviceId, 'video', (result, err) => {
+          if (result) {
+            console.log("Scanned code:", result.text);
+            window.parent.postMessage({
+              type: "barcode-scanned",
+              data: result.text
+            }, "*");
+          }
+          if (err && !(err instanceof ZXing.NotFoundException)) {
+            console.error("Error:", err);
+          }
+        });
+      } else {
+        // Pokud zadní kamera nebyla nalezena, použijeme první dostupné zařízení
+        console.warn("No back camera found, using the first available device");
+        codeReader.decodeFromVideoDevice(videoInputDevices[0].deviceId, 'video', (result, err) => {
+          if (result) {
+            console.log("Scanned code:", result.text);
+            window.parent.postMessage({
+              type: "barcode-scanned",
+              data: result.text
+            }, "*");
+            codeReader.reset();
+          }
+          if (err && !(err instanceof ZXing.NotFoundException)) {
+            console.error("Error:", err);
+          }
+        });
+      }
+    }).catch((err) => {
+      console.error("Error getting video input devices:", err);
+    });
+</script>
+
+
+</body>
+</html>

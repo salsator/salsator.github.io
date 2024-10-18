@@ -1,6 +1,6 @@
 {
-    "name": "VykupujemePreview",
-    "short_name": "VykupujemePreview",
+    "name": "vykupujeme_skenner",
+    "short_name": "vykupujeme_skenner",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
