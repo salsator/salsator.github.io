@@ -23,83 +23,16 @@
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="vykupujeme_skenner">
+  <meta name="apple-mobile-web-app-title" content="ar_test">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>vykupujeme_skenner</title>
+  <title>ar_test</title>
   <link rel="manifest" href="manifest.json">
-
-
-
-  <script>
-    // The value below is injected by flutter build, do not touch.
-    const serviceWorkerVersion = "822630159";
-  </script>
-  <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js" defer></script>
 </head>
 <body>
-<!-- This script adds the flutter initialization JS code
-<video id="video" width="300" height="200" style="border: 1px solid gray"></video>
-<p>Scanned Result: <span id="result"></span></p>
-
-<script>
-  window.addEventListener('load', function () {
-    const scanner = new Dynamsoft.BarcodeReader();
-    scanner.onFrameRead = function (results) {
-      if (results.length > 0) {
-        document.getElementById('result').textContent = results[0].barcodeText;
-      }
-    };
-
-    // Start scanning using camera
-    scanner.decodeFromVideoDevice(undefined, "video").catch(ex => console.error(ex));
-  });
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-javascript-barcode@9.6.42/dist/dbr.js"></script>
-  <script>
-    window.addEventListener('load', function(ev) {
-      // Download main.dart.js
-      _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        },
-        onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine().then(function(appRunner) {
-            appRunner.runApp();
-          });
-        }
-      });
-    });
-  </script>
-<script>
-  function sendMessageToParent(data) {
-    // Parse the JSON string back to a JavaScript object
-
-
-    console.log(`Data received from Flutter app: ${data}`);
-
-    // Example: Update the DOM or pass this data to another part of your website
-
-
-     window.parent.postMessage(
-        {
-          data: {
-            isbn : data
-          },
-        },
-        '*'
-      );
-
-  }
-
-</script>-->
-
-
+  <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
