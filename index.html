@@ -33,18 +33,6 @@
         width: 100%;
         height: 100%;
     }
-    .qrbox {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 280px;
-        height: 280px;
-        transform: translate(-50%, -50%);
-        border: 3px solid white;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-        box-sizing: border-box;
-        pointer-events: none; /* Ensure the QR box does not block interaction with the reader */
-    }
   </style>
 
   <base href="/">
@@ -67,11 +55,10 @@
 </head>
 <body>
 
-  <script src="flutter_bootstrap.js" async></script>
-
+  <!--<script src="flutter_bootstrap.js" async></script>
+-->
 
   <div id="reader">
-    <div class="qrbox"></div>
   </div>
 
 
