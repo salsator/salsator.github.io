@@ -48804,7 +48804,7 @@ A.o1.prototype={
 ah(){return new A.C6()}}
 A.C6.prototype={
 U(a){var s=B.f.k(1000*Date.now()),r=document.createElement("iframe")
-r.src="web/index.html"
+r.src="index.html"
 r.allow="camera"
 A.a62(r,"load",new A.Wk(this),!1)
 $.aan()
